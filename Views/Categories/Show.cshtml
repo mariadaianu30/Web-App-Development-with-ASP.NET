@@ -1,0 +1,12 @@
+﻿@{
+    <h2>Afisare categorie</h2>
+    <br />
+    <p><strong>Nume categorie:</strong> @ViewBag.Category.CategoryName</p>
+    <br />
+    <a href="/Categories/Index">Înapoi la lista categoriilor</a>
+    ///ne intoarcem la pagina initiala cu toate categoriile
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@ViewBag.Category.CategoryId" />
+        <button type="submit">Delete</button>
+    </form>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Afișare articole";
+}
+
+<h2>Lista articolelor</h2>
+<br />
+
+@foreach (var article in ViewBag.Articles)
+{
+<p><strong> Articolul @article.Title</strong></p>
+<p>Continut: @article.Content</p>
+<br />
+<a href="/Articles/Show/@article.ArticleId">Afișare articol</a>
+	<br />
+    <a href="/Articles/Edit/@article.ArticleId"> Editare articol </a>
+    <br />
+    <form asp-action="Delete" method="post" >
+        <input type="hidden" name="id" value="@article.ArticleId" />
+        <button type="submit" onclick="return confirm('Ești sigur că vrei să ștergi articolul?');">Ștergere articol</button>           <!--cream si un pop-up-->
+    </form>
+    <hr />
+}
+
+<a href="/Articles/New">Adaugă articol</a>

@@ -1,0 +1,13 @@
+﻿@{
+    <h2>Afisare articol</h2>
+    <br />
+    <p>@ViewBag.Article.Title</p>
+    <p>@ViewBag.Article.Content</p>
+    <p>@ViewBag.Article.Date</p>
+    <br />
+    <a href="/Articles/Index">Afisare articole</a>  ///ne intoarcem la pagina initiala cu toate articolele
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@ViewBag.Article.ArticleId" />
+        <button type="submit">Delete</button>
+    </form>
+}

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Lista categoriilor";
+}
+
+<h2>Lista categoriilor</h2>
+<br />
+
+@foreach (var category in ViewBag.Categories)
+{
+    <p><strong> Categoria: @category.CategoryName</strong></p>
+    <br />
+    <a href="/Categories/Show/@category.CategoryId">Afișare categorie</a>
+    <br />
+    <a href="/Categories/Edit/@category.CategoryId">Editare categorie</a>
+    <br />
+    <form asp-action="Delete" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="@category.CategoryId" />
+        <button type="submit" onclick="return confirm('Ești sigur că vrei să ștergi categoria?');">
+            Ștergere categorie
+        </button>
+    </form>
+    <hr />
+}
+
+<a href="/Categories/New">Adaugă categorie</a>
